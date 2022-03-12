@@ -34,7 +34,8 @@
               <h4 class="card-header"><strong>Datos de la vacante</strong></h4>              
               <div class="card-body" th:each="vacante:${vacante}">
                 <h5 class="card-title"><strong>Id de la vacante: </strong> <span th:text="${vacante.id}"></span></h5>
-                <h6 class="card-title"><strong>Nombre: </strong> <span th:text="${vacante.nombre}"></span></h6>                
+                <h6 class="card-title"><strong>Nombre: </strong> <span th:text="${vacante.nombre}"></span></h6>     
+                <h6 class="card-title"><strong>Categoria: </strong> <span th:text="${vacante.Categoria.nombre}"></span></h6>  
                 <h7 class="card-title"><strong>Descripcion: </strong><span th:text="${vacante.descripcion}"></span></h7><br>
                 <h8 class="card-title"><strong>Fecha de publicación: </strong><span th:text="${vacante.fecha}"></span></h8><br>
                 <h9 class="card-title"><strong>Salario ofrecido: </strong><span th:text="${vacante.salario}"></span></h9><br>
