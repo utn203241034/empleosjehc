@@ -7,6 +7,6 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @Configuration
 public class WebConfig implements WebMvcConfigurer{
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
-		registry.addResourceHandler("/logos/**").addResourceLocations("file:.\\empleosjehc\\imagenes\\");
+		registry.addResourceHandler("/logos/**").addResourceLocations("file:C:\\empleosjehc\\imagenes\\");
 	}
 }
