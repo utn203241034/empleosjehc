@@ -53,7 +53,7 @@ public class CategoriasController {
 	
 	@GetMapping("/nueva")
 	public String nuevaCategoria(Categoria categorias) {
-		return "/categorias/formCategoria";
+		return "categorias/formCategoria";
 	}
 	
 	@GetMapping("/eliminar/{id}")
