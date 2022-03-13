@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -23,6 +24,20 @@ public class CategoriasController {
 	@Autowired
 	private IntServiceCategorias serviceCategorias;
 	
+	@PostMapping("/guardar2")
+	public String guardar2(Categoria categoria, BindingResult result, RedirectAttributes attributes) {
+		Categoria cat = new Categoria();
+		int id = serviceCategorias.obtenerCategorias().size();
+		Categoria c = serviceCategorias.obtenerCategorias().get(id-1);
+		categoria.setId(++id);
+		System.out.println(categoria);
+		/*cat.setNombre(nombre);
+		cat.setDescripcion(descripcion);*/
+		attributes.addFlashAttribute("msg", "Registro Guardado");
+		serviceCategorias.guardar(categoria);
+		return "redirect:/categorias/index";
+	}
+	
 	@PostMapping("/guardar")
 	public String guardar(@RequestParam("nombre") String nombre, @RequestParam("descripcion") String descripcion) {
 		Categoria cat = new Categoria();
@@ -37,7 +52,7 @@ public class CategoriasController {
 	}
 	
 	@GetMapping("/nueva")
-	public String nuevaCategoria() {
+	public String nuevaCategoria(Categoria categorias) {
 		return "/categorias/formCategoria";
 	}
 	
@@ -59,4 +74,3 @@ public class CategoriasController {
 		return "categorias/listaCategorias";
 	}	
 }
-
