@@ -14,7 +14,7 @@
 	<name>empleos</name>
 	<description>Aplicación para ofertar trabajos</description>
 	<properties>
-		<java.version>9</java.version>
+		<java.version>10</java.version>
 	</properties>
 	<dependencies>
 		<dependency>
